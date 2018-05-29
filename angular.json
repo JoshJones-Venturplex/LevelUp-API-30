@@ -116,7 +116,246 @@
           }
         }
       }
+    },
+    "poke-api-app": {
+      "root": "projects/poke-api-app/",
+      "sourceRoot": "projects/poke-api-app/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/poke-api-app",
+            "index": "projects/poke-api-app/src/index.html",
+            "main": "projects/poke-api-app/src/main.ts",
+            "polyfills": "projects/poke-api-app/src/polyfills.ts",
+            "tsConfig": "projects/poke-api-app/tsconfig.app.json",
+            "assets": [
+              "projects/poke-api-app/src/favicon.ico",
+              "projects/poke-api-app/src/assets"
+            ],
+            "styles": [
+              "projects/poke-api-app/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/poke-api-app/src/environments/environment.ts",
+                  "with": "projects/poke-api-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "poke-api-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "poke-api-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "poke-api-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/poke-api-app/src/test.ts",
+            "polyfills": "projects/poke-api-app/src/polyfills.ts",
+            "tsConfig": "projects/poke-api-app/tsconfig.spec.json",
+            "karmaConfig": "projects/poke-api-app/karma.conf.js",
+            "styles": [
+              "projects/poke-api-app/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/poke-api-app/src/favicon.ico",
+              "projects/poke-api-app/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/poke-api-app/tsconfig.app.json",
+              "projects/poke-api-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "poke-api-app-e2e": {
+      "root": "projects/poke-api-app-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/poke-api-app-e2e/protractor.conf.js",
+            "devServerTarget": "poke-api-app:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/poke-api-app-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "material-pokedex": {
+      "root": "projects/material-pokedex/",
+      "sourceRoot": "projects/material-pokedex/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "inlineTemplate": false
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/material-pokedex",
+            "index": "projects/material-pokedex/src/index.html",
+            "main": "projects/material-pokedex/src/main.ts",
+            "polyfills": "projects/material-pokedex/src/polyfills.ts",
+            "tsConfig": "projects/material-pokedex/tsconfig.app.json",
+            "assets": [
+              "projects/material-pokedex/src/favicon.ico",
+              "projects/material-pokedex/src/assets"
+            ],
+            "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
+              "projects/material-pokedex/src/styles.css",
+              "projects/material-pokedex/src/theme.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/material-pokedex/src/environments/environment.ts",
+                  "with": "projects/material-pokedex/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "material-pokedex:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "material-pokedex:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "material-pokedex:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/material-pokedex/src/test.ts",
+            "polyfills": "projects/material-pokedex/src/polyfills.ts",
+            "tsConfig": "projects/material-pokedex/tsconfig.spec.json",
+            "karmaConfig": "projects/material-pokedex/karma.conf.js",
+            "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
+              "projects/material-pokedex/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/material-pokedex/src/favicon.ico",
+              "projects/material-pokedex/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/material-pokedex/tsconfig.app.json",
+              "projects/material-pokedex/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "material-pokedex-e2e": {
+      "root": "projects/material-pokedex-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/material-pokedex-e2e/protractor.conf.js",
+            "devServerTarget": "material-pokedex:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/material-pokedex-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
-  "defaultProject": "Levelup-APIs"
+  "defaultProject": "material-pokedex"
 }
