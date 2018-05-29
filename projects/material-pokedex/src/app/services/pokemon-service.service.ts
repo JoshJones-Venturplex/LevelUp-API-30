@@ -17,4 +17,8 @@ export class PokemonService {
   public getSinnohPokedex() {
     return this.http.get<any>(`${this.baseUrl}pokedex/6`)
   }
+
+  public getPokemonById(pokemon_id) {
+    return this.http.get<any>(`${this.baseUrl}pokemon-species/${pokemon_id}`)
+  }
 }

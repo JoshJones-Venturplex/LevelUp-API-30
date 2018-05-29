@@ -1,3 +1,19 @@
-<div *ngFor="let poke of pokemon">
-  {{poke.pokemon_species.name}}
+<div class="home-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Pokemon</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let poke of pokemon">
+          <button mat-button (click)="onSelect(poke.entry_number)">
+            {{poke.pokemon_species.name | titlecase}}
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <app-item-card class="selected-card" [poke]="selectedPokemon">
+  </app-item-card>
 </div>

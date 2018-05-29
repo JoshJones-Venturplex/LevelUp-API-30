@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Input } from '@angular/core';
+import { Pokemon } from '../../common/models/pokemon';
 
 @Component({
   selector: 'app-item-card',
@@ -8,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class ItemCardComponent implements OnInit {
 
   constructor() { }
+  @Input() poke: Pokemon;
 
   ngOnInit() {
   }

@@ -1,0 +1,16 @@
+mat-list {
+    overflow: scroll;
+    max-height: 300px;
+}
+
+.selected-card {
+    width: 100%;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: row;
+    align-content:center;
+    height: 100%;
+    width: 100%;
+}
